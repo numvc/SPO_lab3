@@ -182,6 +182,9 @@ void refreshDetailsWindow() {
                     tm.tm_hour, tm.tm_min, tm.tm_sec);
             mvwprintw(windows[2], 6, 2, buff);
         } else {
+            time_t curr_time = time(0);
+            time_t ten_years = 365 * 12 * 30 * 24 * 60;
+            currentTask.deadline = curr_time + rand() % ten_years;
             mvwprintw(windows[2], 6, 2, "Deadline:    -");
         }
 
